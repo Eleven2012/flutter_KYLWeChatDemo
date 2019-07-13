@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_listviewdemo/ui/carlistview.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,10 +21,26 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Home(), //MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
+
+
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        title: Text('FlutterDemo'),
+      ),
+      body: ListViewDemo(),
+    );
+  }
+}
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
