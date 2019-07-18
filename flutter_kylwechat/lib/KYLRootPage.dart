@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_kylwechat/ui/kyl_chat_page.dart';
+import 'package:flutter_kylwechat/ui/kyl_discover_page.dart';
+import 'package:flutter_kylwechat/ui/kyl_friends_page.dart';
+import 'package:flutter_kylwechat/ui/kyl_mine_page.dart';
+
 class KYLRootPage extends StatefulWidget {
 
   @override
@@ -13,39 +18,7 @@ class KYLRootPage extends StatefulWidget {
 class _RootPageState extends State<KYLRootPage> {
   int _currentIndex = 0;
 
-  List<Widget> pages = [Scaffold(
-    appBar: AppBar(
-      title: Text('微信'),
-    ),
-    body: Center(
-      child: Text('微信主页'),
-    ),
-  ),
-    Scaffold(
-      appBar: AppBar(
-        title: Text('通讯录'),
-      ),
-      body: Center(
-        child: Text('通讯录列表'),
-      ),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        title: Text('发现'),
-      ),
-      body: Center(
-        child: Text('发现列表'),
-      ),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        title: Text('我'),
-      ),
-      body: Center(
-        child: Text('我的页面'),
-      ),
-    )
-  ];
+  List<Widget> pages = [KYLChatPage(),KYLFriendsPage(),KYLDiscoverPage(),KYLMinePage()];
 
 
   @override
@@ -58,24 +31,29 @@ class _RootPageState extends State<KYLRootPage> {
               _currentIndex = index;
               setState(() {});
             },
+            selectedFontSize: 12.0,
             type: BottomNavigationBarType.fixed,
             fixedColor: Colors.green,
             currentIndex: _currentIndex,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.chat),
+                icon:Image(height: 20,width: 20,image: AssetImage('images/tabbar_chat.png')),
+                activeIcon: Image(height: 20,width: 20,image: AssetImage('images/tabbar_chat_hl.png')),
                 title: Text('微信'),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.bookmark),
+                icon:Image(height: 20,width: 20,image: AssetImage('images/tabbar_friends.png')),
+                activeIcon: Image(height: 20,width: 20,image: AssetImage('images/tabbar_friends_hl.png')),
                 title: Text('通讯录'),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.history),
+                icon:Image(height: 20,width: 20,image: AssetImage('images/tabbar_discover.png')),
+                activeIcon: Image(height: 20,width: 20,image: AssetImage('images/tabbar_discover_hl.png')),
                 title: Text('发现'),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline),
+                icon:Image(height: 20,width: 20,image: AssetImage('images/tabbar_mine.png')),
+                activeIcon: Image(height: 20,width: 20,image: AssetImage('images/tabbar_mine_hl.png')),
                 title: Text('我'),
               ),
             ]),
